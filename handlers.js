@@ -10,10 +10,11 @@ function chat(response) {
   loadFile('/chat/index.html', response);
 }
 
-function wb() {
+function wb(response) {
+  loadFile('/wb/index.html', response);
 }
 
-function iwb() {
+function iwb(response) {
 }
 
 function loadFile(file, response) {
@@ -33,3 +34,4 @@ function loadFile(file, response) {
 
 exports.index = index;
 exports.chat = chat;
+exports.wb = wb;
