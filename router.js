@@ -5,7 +5,8 @@ function route(path, handle, response) {
   }
   else {
     console.log('routing error, can handle path: ' + path);
-    //reponse.writeHead(404);
+    response.writeHead(404);
+    response.end();
   }
 }
 
