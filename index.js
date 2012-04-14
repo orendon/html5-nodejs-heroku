@@ -5,6 +5,6 @@ var server = require('./server.js'),
 
 var routes = {};
 routes['/'] = handlers.index;
-routes['chat'] = handlers.chat;
+routes['/chat'] = handlers.chat;
 
 server.start(router, routes);

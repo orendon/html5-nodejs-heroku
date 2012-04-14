@@ -1,14 +1,13 @@
 
-var fs = require('fs'),
-    response = { code: 0, content: null, requireSocket: false };
+var fs = require('fs');
 
 
-function index() {
-  return loadFile('/index.html').requireSocket = false;
+function index(response) {
+  loadFile('/index.html', response);
 }
 
-function chat() {
-  return loadFile('/chat/index.html').requireSocket = true;
+function chat(response) {
+  loadFile('/chat/index.html', response);
 }
 
 function wb() {
@@ -17,18 +16,17 @@ function wb() {
 function iwb() {
 }
 
-function loadFile(file){
-  fs.readFile(__dirname + file),
+function loadFile(file, response) {
+  fs.readFile(__dirname + file,
     function(err, data) {
       if(err) {
-        response.code = 500;
-        response.content = 'error loading file...';
+        response.writeHead(500);
+        response.end('error loading file...');
       }
       else {
-        response.code = 200;
-        response.content = data;
+        response.writeHead(200);
+        response.end(data);
       }
-      return response;
     }
   );
 }

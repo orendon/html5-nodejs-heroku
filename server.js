@@ -10,18 +10,14 @@ var http, io, counter = 0;
 function start(router, handlers) {
   app = http.createServer(requestHandler),
   app.listen(port);
+  io = socketio.listen(app);
+  configureSocketServer();
+  console.log('server started...');
 
   function requestHandler(request, response) {
     var path = url.parse(request.url).pathname;
-    var data = router.route(path, handlers);
-
-    if (data.requireSocket) {
-      io = socketio.listen(app);
-      configureSocketServer();
-    }
-
-    response.writeHead(data.code);
-    response.end(data.content);
+    console.log('---- processing request for: ' + path);
+     router.route(path, handlers, response);
   }
 }
 
