@@ -1,0 +1,28 @@
+<html>
+<head>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		var socket = io.connect();
+		
+		socket.on('test', function (data) {
+			var formattedMessage = data.details + '<br/>' + document.getElementById('divMessage').innerHTML;
+			document.getElementById('divMessage').innerHTML = formattedMessage;
+		});
+	  
+		function putMessage() {
+			var txtNick = document.getElementById('txtNick');
+			var txtMessage = document.getElementById('txtMessage');
+			socket.emit('putMessage', { nick: txtNick.value , message: txtMessage.value });
+			txtMessage.value = '';
+			txtMessage.focus();
+		}
+	</script>
+</head>
+<body>
+	<h2>you are running html5 web sockets, over node.js server, yeah!</h2>
+	Nick-name: <input type="text" id="txtNick" /><br/>
+	Bullshit message: <input type="textarea" id="txtMessage" />
+	<input type="submit" value="send" onclick="putMessage();">
+	<div id="divMessage" style="width:400px; height:400px; border: solid 1px; overflow: auto;"></div>
+</body>
+</html>
