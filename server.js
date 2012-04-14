@@ -2,30 +2,28 @@
 var http = require('http'),
 	socketio = require('socket.io'),
 	fs = require('fs'),
-  port = process.env.PORT || 3000;
+  port = process.env.PORT || 3000,
+  url = require('url');
 
 var http, io, counter = 0;
 
-function start() {
+function start(router, handlers) {
   app = http.createServer(requestHandler),
-  io = socketio.listen(app);
   app.listen(port);
-  configureSocketServer();
-}
 
-function requestHandler (req, res) {
-  fs.readFile(__dirname + '/index.html',
-  function (err, data) {
-    if (err) {
-      res.writeHead(500);
-      return res.end('Error loading file...');
+  function requestHandler(request, response) {
+    var path = url.parse(request.url).pathname;
+    var data = router.route(path, handlers);
+
+    if (data.requireSocket) {
+      io = socketio.listen(app);
+      configureSocketServer();
     }
 
-    res.writeHead(200);
-    res.end(data);
-  });
+    response.writeHead(data.code);
+    response.end(data.content);
+  }
 }
-
 
 function configureSocketServer() {
   //heroku configuration
