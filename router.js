@@ -1,6 +1,7 @@
 
 function route(path, handle, response) {
   var rootPath = decode(path);
+  console.log('rootPath: ' + rootPath);
   if(handle[rootPath] != null) {
     handle[rootPath](response, path);
   }
@@ -17,9 +18,9 @@ function route(path, handle, response) {
  * example: /libs/jscolor/jscolor.js -> /libs
 */
 function decode(path) {
-  var index = path.substring(1);
+  var index = path.substring(1).indexOf('/');
   if(index > 0) {
-    return path.substring(0, index-1);
+    return path.substring(0, index+1);
   }
   else {
     return path;
