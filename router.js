@@ -1,7 +1,7 @@
 
 function route(path, handle, response) {
   if(handle[path] != null) {
-    handle[path](response);
+    handle[path](response, path);
   }
   else {
     console.log('routing error, can handle path: ' + path);

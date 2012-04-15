@@ -10,8 +10,13 @@ function chat(response) {
   loadFile('/chat/index.html', response);
 }
 
-function wb(response) {
-  loadFile('/wb/index.html', response);
+function wb(response, resource) {
+  if(resource == '/wb') {
+    loadFile('/wb/index.html', response);
+  }
+  else {
+    loadFile(resource, response);
+  }
 }
 
 function iwb(response) {
