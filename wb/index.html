@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <title>canvas whiteboard</title>
     <script src="/wb/wb-client.js" type="text/javascript"></script>
+    <script src="/libs/jscolor/jscolor.js" type="text/javascript"></script>
     <style type="text/css">
       #pizarra { position: relative; }
     </style>
@@ -12,6 +13,9 @@
     <h1>whiteboard [html5 canvas]</h1>
     <p>
       <a href="/">&lt;&lt; back to experiments</a>
+    </p>
+    <p>
+      Color: <input id="color" class="color" value="#000" />
     </p>
     <div id="pizarra">
       <canvas id="wbCanvas" width="750" height="500" style="border:1px #00f dashed;">
