@@ -53,7 +53,7 @@ function setColor(beginPath){
   if(beginPath) {
     ctx.beginPath();
   }
-  var color = document.getElementById("color").value;
+  var color = "#" + document.getElementById("color").value;
   ctx.strokeStyle = color;
   document.getElementById("message").innerHTML = "color changed to " + color;
 }
