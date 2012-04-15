@@ -1,12 +1,17 @@
 
 var server = require('./server.js'),
     router = require('./router.js'),
-    handlers = require('./handlers');
+    handler = require('./handlers'),
+    sockets = require('./sockets.js');
 
-var routes = {};
-routes['/'] = handlers.index;
-routes['/chat'] = handlers.chat;
-routes['/wb'] = handlers.wb;
-routes['/wb/wb-client.js'] = handlers.wb;
+var socket = new sockets.SocketServer;
 
-server.start(router, routes);
+var handlers = {};
+handlers['/'] = handler.index;
+handlers['/chat'] = handler.chat;
+handlers['/wb'] = handler.wb;
+handlers['/wb/wb-client.js'] = handler.wb;
+
+console.log('index socket: ' + socket);
+
+server.start(router, handlers, socket);
