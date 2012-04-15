@@ -1,7 +1,6 @@
 
 function route(path, handle, response) {
   var rootPath = decode(path);
-  console.log('rootPath: ' + rootPath);
   if(handle[rootPath] != null) {
     handle[rootPath](response, path);
   }
