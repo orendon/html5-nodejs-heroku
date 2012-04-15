@@ -11,6 +11,9 @@ function start() {
   canvas = document.getElementById("wbCanvas");
   ctx = canvas.getContext("2d");
 
+  document.getElementById("color").value = "0000FF";
+  setColor();
+
   canvas.addEventListener("mousemove", onMouseMove, false);
   canvas.addEventListener("mousedown", onMousePress, false);
   canvas.addEventListener("mouseup", onMousePress, false);
@@ -22,6 +25,7 @@ function onMousePress(e) {
   }
   else {
     ctx.moveTo(x, y);
+    //ctx.begiPath();
     mousePressed = true;
   }
 }
@@ -43,5 +47,14 @@ function onMouseMove(e) {
 function drawLine(x, y) {
   ctx.lineTo(x, y);
   ctx.stroke();
+}
+
+function setColor(beginPath){
+  if(beginPath) {
+    ctx.beginPath();
+  }
+  var color = document.getElementById("color").value;
+  ctx.strokeStyle = color;
+  document.getElementById("message").innerHTML = "color changed to " + color;
 }
 
