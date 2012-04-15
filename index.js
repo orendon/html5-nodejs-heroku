@@ -8,9 +8,9 @@ var socket = new sockets.SocketServer;
 
 var handlers = {};
 handlers['/'] = handler.index;
+handlers['/libs'] = handler.libs;
 handlers['/chat'] = handler.chat;
 handlers['/wb'] = handler.wb;
-handlers['/wb/wb-client.js'] = handler.wb;
 
 console.log('index socket: ' + socket);
 

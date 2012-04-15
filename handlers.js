@@ -1,9 +1,12 @@
 
 var fs = require('fs');
 
-
 function index(response) {
   loadFile('/index.html', response);
+}
+
+function libs(response, resource) {
+  loadFile(resource, response);
 }
 
 function chat(response) {
@@ -38,5 +41,7 @@ function loadFile(file, response) {
 }
 
 exports.index = index;
+exports.libs = libs;
 exports.chat = chat;
 exports.wb = wb;
+
