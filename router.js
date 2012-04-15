@@ -1,12 +1,28 @@
 
 function route(path, handle, response) {
-  if(handle[path] != null) {
-    handle[path](response, path);
+  var rootPath = decode(path);
+  if(handle[rootPath] != null) {
+    handle[rootPath](response, path);
   }
   else {
     console.log('routing error, can handle path: ' + path);
     response.writeHead(404);
     response.end();
+  }
+}
+
+
+/*
+ * decode path to share the handler on nested resources
+ * example: /libs/jscolor/jscolor.js -> /libs
+*/
+function decode(path) {
+  var index = path.substring(1);
+  if(index > 0) {
+    return path.substring(0, index-1);
+  }
+  else {
+    return path;
   }
 }
 
