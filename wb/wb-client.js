@@ -10,13 +10,12 @@ window.onload = start;
 function start() {
   canvas = document.getElementById("wbCanvas");
   ctx = canvas.getContext("2d");
-  console.log("started");
+
   canvas.addEventListener("mousemove", onMouseMove, false);
+  canvas.addEventListener("mousedown", onMousePress, false);
 }
 
 function onMousePress(e) {
-  //ctx.beginPath();
-  //ctx.moveTo(x, y);
   mousePressed = true;
 }
 
@@ -32,10 +31,6 @@ function onMouseMove(e) {
   if(mousePressed) {
     drawLine(x, y);
   }
-  else {
-    onMousePress();
-  }
-  console.log(x + "," + y);
 }
 
 function drawLine(x, y) {
