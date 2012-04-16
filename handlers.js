@@ -22,7 +22,13 @@ function wb(response, resource) {
   }
 }
 
-function iwb(response) {
+function iwb(response, resource) {
+  if(resource == '/iwb') {
+    loadFile('/iwb/index.html', response);
+  }
+  else {
+    loadFile(resource, response);
+  }
 }
 
 function loadFile(file, response) {
@@ -44,4 +50,5 @@ exports.index = index;
 exports.libs = libs;
 exports.chat = chat;
 exports.wb = wb;
+exports.iwb = iwb;
 

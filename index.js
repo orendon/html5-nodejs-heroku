@@ -5,7 +5,8 @@ var server = require('./server.js'),
     sockets = require('./sockets.js');
 
 var events = {
-  chat: './chat/chat-socket.js'
+  chat: './chat/chat-socket.js',
+  iwb:  './iwb/iwb-socket.js'
 };
 var socket = new sockets.SocketServer(events);
 
@@ -14,6 +15,7 @@ handlers['/'] = handler.index;
 handlers['/libs'] = handler.libs;
 handlers['/chat'] = handler.chat;
 handlers['/wb'] = handler.wb;
+handlers['/iwb'] = handler.iwb;
 
 console.log('index socket: ' + socket);
 
