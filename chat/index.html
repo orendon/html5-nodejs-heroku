@@ -5,7 +5,7 @@
 	<script>
 		var socket = io.connect();
 		
-		socket.on('test', function (data) {
+		socket.on('get-message', function (data) {
 			var formattedMessage = data.details + '<br/>' + document.getElementById('divMessage').innerHTML;
 			document.getElementById('divMessage').innerHTML = formattedMessage;
 		});
@@ -13,7 +13,7 @@
 		function putMessage() {
 			var txtNick = document.getElementById('txtNick');
 			var txtMessage = document.getElementById('txtMessage');
-			socket.emit('putMessage', { nick: txtNick.value , message: txtMessage.value });
+			socket.emit('send-message', { nick: txtNick.value , message: txtMessage.value });
 			txtMessage.value = '';
 			txtMessage.focus();
 		}
