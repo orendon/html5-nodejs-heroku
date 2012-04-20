@@ -4,8 +4,8 @@
 function bind(socket) {
   socket.on('iwb-message', function (data) {
       //console.log("the color was: " + data.color);
-      socket.emit('get-iwb-message', { details: data.color + ': ' + data.coords } );
-      socket.broadcast.emit('get-iwb-message', { details: data.color + ': ' + data.coords } );
+      //socket.emit('get-iwb-message', { x: data.x, y: data.y, color: data.color } );
+      socket.broadcast.emit('get-iwb-message', { x: data.x, y: data.y, color: data.color } );
   });
 }
 

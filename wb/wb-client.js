@@ -17,6 +17,10 @@ function start() {
   canvas.addEventListener("mousemove", onMouseMove, false);
   canvas.addEventListener("mousedown", onMousePress, false);
   canvas.addEventListener("mouseup", onMousePress, false);
+
+  if(typeof(startSocket) == 'function') {
+    startSocket();
+  }
 }
 
 function onMousePress(e) {
@@ -41,6 +45,9 @@ function onMouseMove(e) {
   }
   if(mousePressed) {
     drawLine(x, y);
+    if(typeof(sendData) == 'function') {
+      sendData(x, y, ctx.strokeStyle);
+    }
   }
 }
 

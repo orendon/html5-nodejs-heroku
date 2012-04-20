@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>interactive whiteboard</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/wb/wb-client.js" type="text/javascript"></script>
+    <script src="/iwb/iwb-sender.js" type="text/javascript"></script>
+    <style type="text/css">
+      #pizarra { position: relative; }
+    </style>
+  </head>
+  <body>
+    <h1>interactive whiteboard [html5 canvas + node.js]</h1>
+    <p>
+      <a href="/">&lt;&lt; back to experiments</a>
+    </p>
+    <p>
+      Color: <input id="color" class="color" value="000" />
+      <input type="submit" value="Set Color" onclick="setColor(true);" />
+      <div id="message"></div>
+    </p>
+    <div id="pizarra">
+      <canvas id="wbCanvas" width="780" height="450" style="border:1px #00f dashed;">
+        Your browser dont support html5 canvas, 
+        you should download chrome or firefox, it's free!
+      </canvas>
+    </div>
+    <script src="/libs/jscolor/jscolor.js" type="text/javascript"></script>
+  </body>
+</html>
