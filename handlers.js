@@ -24,7 +24,7 @@ function wb(response, resource) {
 
 function iwb(response, resource) {
   if(resource == '/iwb') {
-    loadFile('/iwb/index.html', response);
+    loadFile('/iwb/receiver.html', response);
   }
   else {
     loadFile(resource, response);
