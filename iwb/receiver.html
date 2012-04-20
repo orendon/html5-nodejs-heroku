@@ -13,6 +13,7 @@
     <h1>interactive whiteboard [html5 canvas + node.js]</h1>
     <p>
       <a href="/">&lt;&lt; back to experiments</a>
+      <br/> | drawing is reveived from this <a href="/iwb/sender.html">sender</a>
     </p>
     <div id="pizarra">
       <canvas id="wbCanvas" width="780" height="450" style="border:1px #00f dashed;">
@@ -20,5 +21,16 @@
         you should download chrome or firefox, it's free!
       </canvas>
     </div>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30926611-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
   </body>
 </html>
