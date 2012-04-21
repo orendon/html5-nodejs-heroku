@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<title>where I am</title>
+	<style type="text/css">
+		#html5_map {
+			height: 600px;
+		}
+	</style>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script src="/geo/whereiam.js" type="text/javascript"></script>
+</head>
+<body>
+	<header>
+		<h1>where I am? [html5 geolocation]</h1>
+	</header>
+	<section>
+		<p>
+			<a href="/">&lt;&lt; back to experiments</a>
+		</p>
+		<input type="button" onclick="getLocation();" value="where I am?" />
+		<div id="message"></div>
+	</section>
+	<div id="html5_map"></div>
+</body>
+</html>
