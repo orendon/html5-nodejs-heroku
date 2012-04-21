@@ -31,6 +31,15 @@ function iwb(response, resource) {
   }
 }
 
+function geo(response, resource) {
+  if(resource == '/geo') {
+    loadFile('/geo/index.html', response);
+  }
+  else {
+    loadFile(resource, response);
+  }
+}
+
 function loadFile(file, response) {
   fs.readFile(__dirname + file,
     function(err, data) {
@@ -51,4 +60,5 @@ exports.libs = libs;
 exports.chat = chat;
 exports.wb = wb;
 exports.iwb = iwb;
+exports.geo = geo;
 
