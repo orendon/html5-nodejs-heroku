@@ -16,6 +16,7 @@ handlers['/libs'] = handler.libs;
 handlers['/chat'] = handler.chat;
 handlers['/wb'] = handler.wb;
 handlers['/iwb'] = handler.iwb;
+handlers['/geo'] = handler.geo;
 
 console.log('index socket: ' + socket);
 
